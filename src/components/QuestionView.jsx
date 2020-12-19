@@ -1,35 +1,34 @@
 import React, { useState } from 'react';
 import Questions from './Questions.json';
 import ExecuteButton from './ExecuteButton.jsx';
-import test from '../App.js';
 
-const QuestionView = () => {
-    const [answers, setAnswers] = useState([null, null, null, null, null, null, null, null, null, null]) // 回答結果を保存するstate
+const QuestionView = (props) => {
 
     const handleYes = (index) => {
         console.log("Yes", index)
-        const newAnswers = [...answers.slice(0, index), true, ...answers.slice(index+1)]
-        setAnswers(newAnswers)
+        const newAnswers = [...props.answers.slice(0, index), true, ...props.answers.slice(index+1)]
+        props.setAnswers(newAnswers)
+        console.log(props.answers)
     }
 
     const handleNo = (index) => {
         console.log("No", index)
-        const newAnswers = [...answers.slice(0, index), false, ...answers.slice(index+1)]
-        setAnswers(newAnswers)
+        const newAnswers = [...props.answers.slice(0, index), false, ...props.answers.slice(index+1)]
+        props.setAnswers(newAnswers)
     }
 
-    const Calculation = (props) => {
+    const Calculation = (answers) => {
         // 0 ~ 5 番までの結果を取得 answer.slice()
         // trueの数を計算する カウント
         // 該当する性格のポイントを増やす
         let SelfAssertion = false;
         let EmotionalExpression = false;
 
-        const SelfAssertionPoint = (props) => {
+        const SelfAssertionPoint = () => {
             let count = 0;
 
             for (let i = 0; i < 5; i++) {
-                if (props.slice(0,4)[i]) {
+                if (props.answers.slice(0,4)[i]) {
                     count++;
                 }
             }
@@ -37,11 +36,11 @@ const QuestionView = () => {
             return count;
         }
 
-        const EmotionalExpressionPoint = (props) => {
+        const EmotionalExpressionPoint = () => {
             let count = 0;
 
             for (let i = 5; i < 10; i++) {
-                if (props.slice(5,9)[i]){
+                if (props.answers.slice(5,9)[i]){
                     count++;
                 }
             }
@@ -49,11 +48,11 @@ const QuestionView = () => {
             return count;
         }
 
-        if (SelfAssertionPoint > 3) {
+        if (SelfAssertionPoint() > 3) {
             SelfAssertion = true;
         }
 
-        if (EmotionalExpression > 3) {
+        if (EmotionalExpressionPoint() > 3) {
             EmotionalExpression = true;
         }
 
@@ -77,7 +76,7 @@ const QuestionView = () => {
     return (
         <div>
             <p>{Questions.count}</p>
-            {answers.map(v => <p>{v}</p>)}
+            {props.answers.map(v => <p>{v}</p>)}
             {Questions.problems.map((question, index) => (
                 <div>
                     <p>{question.title}</p>
