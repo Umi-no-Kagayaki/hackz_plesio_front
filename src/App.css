@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+button{
+  font-size: 45px;
+  border-radius: 8px;
+  background-color: purple;
+  color: #fff; 
+ 
+}
