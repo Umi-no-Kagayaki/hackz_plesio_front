@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+import React, { useState } from 'react'
+
+>>>>>>> ea56aa1d7dbdf0a13da3058f033e43c6e678d8f7
 import './App.css';
+import QuestionView from './components/QuestionView'
 import ExecuteButton from './components/ExecuteButton';
 
 // let phase = 1;
@@ -14,6 +20,7 @@ const no = () => {
 
 function App() {
 
+<<<<<<< HEAD
   const [phase, setPhase] = useState(1)
 
   const test = () => {
@@ -38,6 +45,14 @@ function App() {
     
     
 
+=======
+  const [answers, setAnswers] = useState([null, null, null, null, null, null, null, null, null, null]) // 回答結果を保存するstate
+
+  return (
+    <div>
+      <ExecuteButton func={test} title='診断開始'/>
+      <QuestionView setAnswers={setAnswers} answers={answers}/>
+>>>>>>> ea56aa1d7dbdf0a13da3058f033e43c6e678d8f7
     </div>
   );
 }
