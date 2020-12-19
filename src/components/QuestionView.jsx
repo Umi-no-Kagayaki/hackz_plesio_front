@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Questions from './Questions.json';
+import ExecuteButton from './ExecuteButton.jsx';
+import test from '../App.js';
 
 const QuestionView = () => {
     const [answers, setAnswers] = useState([null, null, null, null, null, null, null, null, null, null]) // 回答結果を保存するstate
@@ -83,19 +85,8 @@ const QuestionView = () => {
                     <button onClick={() => handleNo(index)}>no</button>
                 </div>
             ))}
-            <button　>回答を終了</button>
         </div>
     )
-
-    // if (count < 5) {
-    //     SelfAssertion++;
-    // }
-
-    // else  {
-    //     EmotionalExpression++;
-    // }
-
-    // count++;
 }
 
 export default QuestionView

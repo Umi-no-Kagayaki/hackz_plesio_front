@@ -1,25 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import QuestionView from './components/QuestionView'
+import ExecuteButton from './components/ExecuteButton';
+
+const test = (props) => {
+  console.log("test");
+} 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <QuestionView/>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ExecuteButton func={test} title='診断開始'/>
+      <QuestionView/>
     </div>
   );
 }
