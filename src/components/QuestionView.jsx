@@ -47,15 +47,15 @@ const QuestionView = (props) => {
 
             return count;
         }
-
+　　　　　
         if (SelfAssertionPoint() > 3) {
             SelfAssertion = true;
         }
-
+       
         if (EmotionalExpressionPoint() > 3) {
             EmotionalExpression = true;
         }
-
+        
         if (SelfAssertion && EmotionalExpression) {
             return "あなたは「楽天家タイプ」です。"
         }
@@ -71,6 +71,7 @@ const QuestionView = (props) => {
         else {
             return "あなたは「研究者タイプ」です。"
         }
+    
     }
 
     return (
@@ -79,7 +80,7 @@ const QuestionView = (props) => {
             {props.answers.map(v => <p>{v}</p>)}
             {Questions.problems.map((question, index) => (
                 <div>
-                    <p>{question.title}</p>
+                    <h2>{question.title}</h2>
                     <button onClick={() => handleYes(index)}>yes</button>
                     <button onClick={() => handleNo(index)}>no</button>
                 </div>
