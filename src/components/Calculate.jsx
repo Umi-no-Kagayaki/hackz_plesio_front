@@ -40,19 +40,19 @@ const Calculation = (props) => {
     }
 
     if (SelfAssertion && EmotionalExpression) {
-        return <p>あなたは「楽天家タイプ」です。</p>
+        return <p class = "result">あなたは「楽天家タイプ」です。</p>
     }
 
     else if (SelfAssertion && !EmotionalExpression) {
-        return <p>あなたは「経営者タイプ」です。</p>
+        return <p class = "result">あなたは「経営者タイプ」です。</p>
     }
 
     else if (!SelfAssertion && EmotionalExpression) {
-        return <p>あなたは「共感者タイプ」です。</p>
+        return <p class = "result">あなたは「共感者タイプ」です。</p>
     }
 
     else {
-        return <p>あなたは「研究者タイプ」です。</p>
+        return <p class = "result">あなたは「研究者タイプ」です。</p>
     }
 }
 
