@@ -1,15 +1,15 @@
 body {
   margin: 50% auto;
 
-  /* transform: translate(-50%, -50%); */
+  height: 1500px;
 
-  height: 1000px;
-
-  width: 1000px;
+  width: 1500px;
 
   background-image: url("./BackgroundImage.img");
   background-size: cover;
   background-repeat: none;
+
+  border-radius: 20px;
 }
 
 body > div {
@@ -35,9 +35,12 @@ body > div > button.start {
 
   width: 96%;
 
+  border-radius: 20px;
+
   line-height: 100%;
 
   font-size: 400%;
+  font-family: "Hiragino Mincho ProN";
 }
 
 body > div > button.stop {
@@ -47,9 +50,12 @@ body > div > button.stop {
 
   transform: translateX(-50%);
 
-  width: 100px;
+  width: 120px;
 
-  font-size: 18px;
+  border-radius: 5px;
+
+  font-size: 26px;
+  font-family: "Hiragino Mincho ProN";
 }
 
 body > div > p.result {
@@ -65,9 +71,12 @@ body > div > p.result {
 
   width: 96%;
 
+  border-radius: 20px;
+
   line-height: 100%;
 
   font-size: 400%;
+  font-family: "Hiragino Mincho ProN";
 
   background-color: #FFF;
 }
@@ -81,5 +90,8 @@ body > div > div > div > button.yes, button.no, p.question {
 
   background-color: #FFF;
 
-  font-size: 18px;
+  border-radius: 5px;
+
+  font-size: 26px;
+  font-family: "Hiragino Mincho ProN";
 }
