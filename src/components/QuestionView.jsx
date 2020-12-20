@@ -81,8 +81,8 @@ const QuestionView = (props) => {
             {Questions.problems.map((question, index) => (
                 <div>
                     <h2>{question.title}</h2>
-                    <button onClick={() => handleYes(index)}>yes</button>
-                    <button onClick={() => handleNo(index)}>no</button>
+                    <button onClick={() => handleYes(index) }>yes</button>
+                    <button onClick={() => handleNo(index) }>no</button>
                 </div>
             ))}
         </div>
