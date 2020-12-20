@@ -19,23 +19,25 @@ function App() {
   }
 
   return (
-    <div>
-      { phase === 1 
-        ? <ExecuteButton func={test} title='診断開始' />
-        : phase === 2
-        ? <QuestionView setAnswers={setAnswers} answers={answers}/>
-        :null
-      }
-      
-      
+    <body>
+      <div>
+        { phase === 1 
+          ? <ExecuteButton class = "start" func={test} title='診断開始'/>
+          : phase === 2
+          ? <QuestionView setAnswers={setAnswers} answers={answers}/>
+          :null
+        }
+        
+        
 
-      { phase === 2
-        ? <ExecuteButton func = {test} title = '回答終了'/>
-        : phase === 3
-        ? <Calculate answers = {answers}/>
-        : null
-      }
-    </div>
+        { phase === 2
+          ? <ExecuteButton class = "stop" func = {test} title = '回答終了'/>
+          : phase === 3
+          ? <Calculate answers = {answers}/>
+          : null
+        }
+      </div>
+    </body>
   );
 }
 
