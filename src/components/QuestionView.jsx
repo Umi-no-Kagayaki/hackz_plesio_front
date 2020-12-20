@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Questions from './Questions.json';
-import ExecuteButton from './ExecuteButton.jsx';
 
 const QuestionView = (props) => {
 
@@ -17,68 +16,12 @@ const QuestionView = (props) => {
         props.setAnswers(newAnswers)
     }
 
-    const Calculation = (answers) => {
-        // 0 ~ 5 番までの結果を取得 answer.slice()
-        // trueの数を計算する カウント
-        // 該当する性格のポイントを増やす
-        let SelfAssertion = false;
-        let EmotionalExpression = false;
-
-        const SelfAssertionPoint = () => {
-            let count = 0;
-
-            for (let i = 0; i < 5; i++) {
-                if (props.answers.slice(0,4)[i]) {
-                    count++;
-                }
-            }
-            
-            return count;
-        }
-
-        const EmotionalExpressionPoint = () => {
-            let count = 0;
-
-            for (let i = 5; i < 10; i++) {
-                if (props.answers.slice(5,9)[i]){
-                    count++;
-                }
-            }
-
-            return count;
-        }
-
-        if (SelfAssertionPoint() > 3) {
-            SelfAssertion = true;
-        }
-
-        if (EmotionalExpressionPoint() > 3) {
-            EmotionalExpression = true;
-        }
-
-        if (SelfAssertion && EmotionalExpression) {
-            return "あなたは「楽天家タイプ」です。"
-        }
-
-        if (SelfAssertion && !EmotionalExpression) {
-            return "あなたは「経営者タイプ」です。"
-        }
-
-        if (!SelfAssertion && EmotionalExpression) {
-            return "あなたは「共感者タイプ」です。"
-        }
-
-        else {
-            return "あなたは「研究者タイプ」です。"
-        }
-    }
-
     return (
         <div>
             <p>{Questions.count}</p>
             {props.answers.map(v => <p>{v}</p>)}
             {Questions.problems.map((question, index) => (
-                <div>
+                <div key={question.title}>
                     <p>{question.title}</p>
                     <button onClick={() => handleYes(index)}>yes</button>
                     <button onClick={() => handleNo(index)}>no</button>

@@ -4,16 +4,7 @@ import React, { useState } from 'react';
 import './App.css';
 import QuestionView from './components/QuestionView'
 import ExecuteButton from './components/ExecuteButton';
-
-// let phase = 1;
-
-const yes = () => {
-  console.log("yes");
-}
-const no = () => {
-  console.log("no");
-}
-
+import Calculate from './components/Calculate.jsx'
 
 function App() {
 
@@ -31,10 +22,19 @@ function App() {
     <div>
       { phase === 1 
         ? <ExecuteButton func={test} title='診断開始' />
-        : null
+        : phase === 2
+        ? <QuestionView setAnswers={setAnswers} answers={answers}/>
+        :null
       }
       
-      <QuestionView setAnswers={setAnswers} answers={answers}/>
+      
+
+      { phase === 2
+        ? <ExecuteButton func = {test} title = '回答終了'/>
+        : phase === 3
+        ? <Calculate answers = {answers}/>
+        : null
+      }
     </div>
   );
 }
